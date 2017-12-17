@@ -53,7 +53,7 @@ public class CallDeclaredGenerator extends CallGenerator
         // A function call leaves a value on the operand stack.
         SymTabEntry routineId = (SymTabEntry) node.getAttribute(ID);
         if (routineId.getDefinition() == DefinitionImpl.FUNCTION) {
-            //localStack.increase(1);
+            localStack.increase(1);
         }
     }
 

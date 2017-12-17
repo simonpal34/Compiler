@@ -61,15 +61,16 @@
 .var 0 is main Ljava/lang/StringBuilder;
 .var 2 is i I
 .var 3 is j F
+.var 4 is f I
 
 
-.line 12
+.line 13
 	iconst_1
 	istore_2
-.line 13
+.line 14
 	ldc	4.0
 	fstore_3
-.line 19
+.line 20
 	iload_2
 	iconst_1
 	if_icmpeq	L002
@@ -79,7 +80,7 @@ L002:
 	iconst_1
 L003:
 	ifeq	L001
-.line 17
+.line 18
 	fload_3
 	iconst_1
 	i2f
@@ -88,10 +89,10 @@ L003:
 L001:
 .line 20
 	iload_2
-	iload_2
-	i2f
+	fload_3
 	invokestatic	test1/foo(IF)I
-.line 21
+	istore	4
+.line 22
 	getstatic	java/lang/System/out Ljava/io/PrintStream;
 	ldc	"%d\n"
 	iconst_1
@@ -103,15 +104,27 @@ L001:
 	aastore
 	invokestatic	java/lang/String/format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 	invokevirtual	java/io/PrintStream.print(Ljava/lang/String;)V
-.line 22
+.line 23
+	getstatic	java/lang/System/out Ljava/io/PrintStream;
+	ldc	"%d\n"
+	iconst_1
+	anewarray	java/lang/Object
+	dup
 	iconst_0
-	istore_3
+	iload	4
+	invokestatic	java/lang/Integer.valueOf(I)Ljava/lang/Integer;
+	aastore
+	invokestatic	java/lang/String/format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+	invokevirtual	java/io/PrintStream.print(Ljava/lang/String;)V
+.line 24
+	iconst_0
+	istore	4
 
 	getstatic	test1/_runTimer LRunTimer;
 	invokevirtual	RunTimer.printElapsedTime()V
 
 	return
 
-.limit locals 4
+.limit locals 5
 .limit stack 7
 .end method
