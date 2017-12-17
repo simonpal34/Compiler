@@ -1,4 +1,4 @@
-void foo (int n, float f){
+int foo (int n, float f){
     int k;
     k = 1 + 3;
     char c;
