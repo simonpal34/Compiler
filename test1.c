@@ -1,11 +1,11 @@
-int foo (int n, float f){
+int foo(int n, float f){
     int k;
     k = 1 + 3;
     char c;
     c  = 'h';
     return k;
 }
-int main (){
+int main(){
  
 int i;
 float j;

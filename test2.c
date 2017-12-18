@@ -1,11 +1,11 @@
 int t ;
-int foo ()
+int foo()
 {
     int i; 
     i = 1;
     return i;
 }
-int main (){
+int main(){
  
 int i;
 int j;

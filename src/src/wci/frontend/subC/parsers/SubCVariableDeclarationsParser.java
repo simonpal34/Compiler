@@ -85,7 +85,7 @@ public class SubCVariableDeclarationsParser extends SubCDeclarationsParser
         
         token = synchronize(IDENTIFIER_SET);
         
-         char peek = token.peekChar();
+         char peek = token.currentChar();
         if (peek == '(') {
                 
         	SubCDeclaredRoutineParser routineParser = new SubCDeclaredRoutineParser(this);

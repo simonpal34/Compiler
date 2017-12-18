@@ -1,10 +1,9 @@
-.class public test2
+.class public test3
 .super java/lang/Object
 
 .field private static _runTimer LRunTimer;
 .field private static _standardIn LPascalTextIn;
 
-.field private static t I
 
 .method public <init>()V
 
@@ -16,71 +15,71 @@
 .limit stack 1
 .end method
 
-.method private static foo()I
-
-.var 0 is i I
-
-.var 1 is foo I
-
-
-
-.line 5
-	iconst_1
-	istore_0
-.line 7
-	iload_0
-	istore_1
-
-	iload_1
-	ireturn
-
-.limit locals 2
-.limit stack 1
-.end method
-
 .method public static main([Ljava/lang/String;)V
 
 	new	RunTimer
 	dup
 	invokenonvirtual	RunTimer/<init>()V
-	putstatic	test2/_runTimer LRunTimer;
+	putstatic	test3/_runTimer LRunTimer;
 	new	PascalTextIn
 	dup
 	invokenonvirtual	PascalTextIn/<init>()V
-	putstatic	test2/_standardIn LPascalTextIn;
+	putstatic	test3/_standardIn LPascalTextIn;
 
 
 
 .var 0 is main Ljava/lang/StringBuilder;
-.var 2 is i I
+.var 2 is i F
 .var 3 is j I
-.var 4 is c C
 
 
-.line 13
-	bipush	104
-	istore	4
-.line 17
+.line 6
+	getstatic	test3/_standardIn LPascalTextIn;
+	invokevirtual	PascalTextIn.readReal()F
+	fstore_2
+	getstatic	test3/_standardIn LPascalTextIn;
+	invokevirtual	PascalTextIn.nextLine()V
+.line 7
+	getstatic	test3/_standardIn LPascalTextIn;
+	invokevirtual	PascalTextIn.readInteger()I
+	istore_3
+	getstatic	test3/_standardIn LPascalTextIn;
+	invokevirtual	PascalTextIn.nextLine()V
+.line 7
+	iload_3
+	iconst_5
+	imul
+	i2f
+	fload_2
+	iconst_2
+	i2f
+	fdiv
+	iconst_2
+	i2f
+	fdiv
+	fadd
+	fstore_2
+.line 11
 	getstatic	java/lang/System/out Ljava/io/PrintStream;
-	ldc	"%c\n"
+	ldc	"%f\n"
 	iconst_1
 	anewarray	java/lang/Object
 	dup
 	iconst_0
-	iload	4
-	invokestatic	java/lang/Character.valueOf(C)Ljava/lang/Character;
+	fload_2
+	invokestatic	java/lang/Float.valueOf(F)Ljava/lang/Float;
 	aastore
 	invokestatic	java/lang/String/format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 	invokevirtual	java/io/PrintStream.print(Ljava/lang/String;)V
-.line 18
+.line 12
 	iconst_0
-	istore	4
+	istore_3
 
-	getstatic	test2/_runTimer LRunTimer;
+	getstatic	test3/_runTimer LRunTimer;
 	invokevirtual	RunTimer.printElapsedTime()V
 
 	return
 
-.limit locals 5
+.limit locals 4
 .limit stack 7
 .end method

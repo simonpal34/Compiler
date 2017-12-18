@@ -98,7 +98,7 @@ public class Token
      * @return the current character from the source.
      * @throws Exception if an error occurred.
      */
-    protected char currentChar()
+    public char currentChar()
         throws Exception
     {
         return source.currentChar();

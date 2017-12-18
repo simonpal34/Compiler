@@ -1,10 +1,9 @@
-.class public test2
+.class public test5
 .super java/lang/Object
 
 .field private static _runTimer LRunTimer;
 .field private static _standardIn LPascalTextIn;
 
-.field private static t I
 
 .method public <init>()V
 
@@ -16,71 +15,71 @@
 .limit stack 1
 .end method
 
-.method private static foo()I
-
-.var 0 is i I
-
-.var 1 is foo I
-
-
-
-.line 5
-	iconst_1
-	istore_0
-.line 7
-	iload_0
-	istore_1
-
-	iload_1
-	ireturn
-
-.limit locals 2
-.limit stack 1
-.end method
-
 .method public static main([Ljava/lang/String;)V
 
 	new	RunTimer
 	dup
 	invokenonvirtual	RunTimer/<init>()V
-	putstatic	test2/_runTimer LRunTimer;
+	putstatic	test5/_runTimer LRunTimer;
 	new	PascalTextIn
 	dup
 	invokenonvirtual	PascalTextIn/<init>()V
-	putstatic	test2/_standardIn LPascalTextIn;
+	putstatic	test5/_standardIn LPascalTextIn;
 
 
 
 .var 0 is main Ljava/lang/StringBuilder;
 .var 2 is i I
 .var 3 is j I
-.var 4 is c C
 
 
+.line 6
+	iconst_0
+	istore_2
+.line 7
+	iconst_5
+	istore_3
+.line 10
+L001:
+	iload_2
+	iload_3
+	if_icmplt	L003
+	iconst_0
+	goto	L004
+L003:
+	iconst_1
+L004:
+	iconst_1
+	ixor
+	ifne	L002
+.line 11
+	iload_2
+	iconst_1
+	iadd
+	istore_2
 .line 13
-	bipush	104
-	istore	4
-.line 17
 	getstatic	java/lang/System/out Ljava/io/PrintStream;
-	ldc	"%c\n"
+	ldc	"%d\n"
 	iconst_1
 	anewarray	java/lang/Object
 	dup
 	iconst_0
-	iload	4
-	invokestatic	java/lang/Character.valueOf(C)Ljava/lang/Character;
+	iload_2
+	invokestatic	java/lang/Integer.valueOf(I)Ljava/lang/Integer;
 	aastore
 	invokestatic	java/lang/String/format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 	invokevirtual	java/io/PrintStream.print(Ljava/lang/String;)V
-.line 18
+	goto	L001
+L002:
+.line 15
 	iconst_0
-	istore	4
+	istore_3
 
-	getstatic	test2/_runTimer LRunTimer;
+	getstatic	test5/_runTimer LRunTimer;
 	invokevirtual	RunTimer.printElapsedTime()V
 
 	return
 
-.limit locals 5
+.limit locals 4
 .limit stack 7
 .end method
